@@ -1,0 +1,38 @@
+﻿@model CRUDMVC.Models.EmployeModel
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+            {
+    @Html.HiddenFor(m=>m.id)
+                <div>
+                    <label>First_Name</label>
+                    @Html.TextBoxFor(m => m.First_Name, new { @Class = "form-control", @placeholder = "FirstName" })
+                    @Html.ValidationMessageFor(m=>m.First_Name,"",new {@class= "text-danger" })
+
+                </div><div>
+    <label>Last_Name</label>
+    @Html.TextBoxFor(m => m.Last_Name, new { @Class = "form-control", @placeholder = "LastName" })
+    @Html.ValidationMessageFor(m => m.Last_Name, "", new { @class = "text-danger" })
+
+</div><div>
+    <label>Salary</label>
+    @Html.TextBoxFor(m => m.salary, new { @Class = "form-control", @placeholder = "Salary", @required = "Required" })
+    @Html.ValidationMessageFor(m => m.salary, "", new { @class = "text-danger" })
+
+</div><div>
+    <label>Department</label>
+    @Html.TextBoxFor(m => m.Department, new { @Class = "form-control", @placeholder = "Department", @required = "Required" })
+    @Html.ValidationMessageFor(m => m.Department, "", new { @class = "text-danger" })
+</div>
+      <div>
+          <label>Gender</label>
+        Male :  @Html.RadioButtonFor(m => m.Genders, "Male")
+        Female :  @Html.RadioButtonFor(m => m.Genders, "Female" )
+      </div>
+      <div>
+          <label>Date</label>
+          @Html.TextBoxFor(m=>m.Date,new {id="dob" , type ="date",@class="form-control" } )
+      </div>
+                <br />
+                <button type="submit" class="btn btn-danger">Add Data</button>
+            }
+

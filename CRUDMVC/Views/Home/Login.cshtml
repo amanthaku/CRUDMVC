@@ -1,0 +1,23 @@
+﻿
+@model CRUDMVC.Models.LoginModel
+<div style="width:300px; height:400px; padding:2px;"class="border border-5 text-bg-secondary p-3">
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+        <div>
+            <label>Email</label>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            <span>@TempData["Emailid"]</span>
+        </div>
+        <br />
+        <div>
+            <label>Password</label>
+            @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            <span>@TempData["Pass"]</span>
+        </div>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+</div>
